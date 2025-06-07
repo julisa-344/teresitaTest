@@ -1,0 +1,30 @@
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# VSCode
+.vscode/
+
+# Compiled files
+*.class
+*.o
+*.so
+
+# Backup files
+*~
+*.swp
+*.sh
