@@ -13,11 +13,11 @@ const Header = () => {
   const navItems = [
     { 
       name: 'INICIO', 
-      href: '/recetas'
+      href: '/'
     },
     { 
       name: 'NOSOTROS', 
-      href: '/recetas',
+      href: '/nosotros',
       dropdown: [
         { name: 'Nuestra Historia', href: '/nosotros#historia' },
         { name: 'Nuestro Equipo', href: '/nosotros#equipo' },
@@ -26,7 +26,7 @@ const Header = () => {
     },
     { 
       name: 'PRODUCTOS', 
-      href: '/recetas',
+      href: '/productos',
       dropdown: [
         { name: 'Condimentos', href: '/productos#condimentos' },
         { name: 'Sazonadores', href: '/productos#sazonadores' },
@@ -45,7 +45,7 @@ const Header = () => {
     },
     { 
       name: 'CONTÁCTANOS', 
-      href: '/recetas'
+      href: '/contacto'
     },
   ];
 
