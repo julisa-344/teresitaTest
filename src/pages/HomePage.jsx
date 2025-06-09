@@ -1,108 +1,59 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/Sections/HeroSection';
+// Componentes específicos de HomePage
+import RecipeInspiration from '../components/HomePage/RecipeInspiration';
+import ProductSolution from '../components/HomePage/ProductSolution';
+import TrustLegacy from '../components/HomePage/TrustLegacy';
+import CommunitySection from '../components/HomePage/CommunitySection';
 
 const HomePage = () => {
   return (
     <div className="min-h-screen">
+      {/* 1. PROMESA DE VALOR - Hero Section con propuesta clara */}
       <HeroSection />
       
-      {/* Featured Content Section */}
-      <section className="py-20 bg-neutral-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-neutral-800 mb-6">
-              Bienvenido a Teresita
-            </h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Descubre más de 40 años de tradición culinaria peruana. Explora nuestros productos, 
-              recetas auténticas y la historia que nos ha convertido en una marca de confianza.
-            </p>
-          </div>
+      {/* 2. INSPIRACIÓN - Recetas que despiertan el deseo de cocinar */}
+      <RecipeInspiration />
+      
+      {/* 3. SOLUCIÓN - Productos que hacen posible la magia culinaria */}
+      <ProductSolution />
+      
+      {/* 4. CONFIANZA - Legacy y credibilidad de la marca */}
+      <TrustLegacy />
+      
+      {/* 5. PRUEBA SOCIAL - Comunidad y testimonio de usuarios */}
+      <CommunitySection />
 
-          {/* Quick Navigation Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link 
-              to="/nosotros"
-              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">👥</div>
-              <h3 className="text-xl font-bold text-neutral-800 mb-2">Nosotros</h3>
-              <p className="text-neutral-600">Conoce nuestra historia y valores</p>
-            </Link>
-
-            <Link 
-              to="/productos"
-              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">🛍️</div>
-              <h3 className="text-xl font-bold text-neutral-800 mb-2">Productos</h3>
-              <p className="text-neutral-600">Explora nuestra gama de condimentos</p>
-            </Link>
-
+      {/* Call to Action Final - Navegación dual clara */}
+      <section className="py-20 bg-gradient-to-br from-orange-600 to-red-600">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+            ¿Listo para Comenzar tu Aventura Culinaria?
+          </h2>
+          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+            Elige tu camino: descubre recetas inspiradoras o encuentra los productos perfectos para tu cocina.
+          </p>
+          
+          {/* Rutas de Navegación Duales */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
             <Link 
               to="/recetas"
-              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-orange-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">👨‍🍳</div>
-              <h3 className="text-xl font-bold text-neutral-800 mb-2">Recetas</h3>
-              <p className="text-neutral-600">Descubre sabores auténticos</p>
+              <span className="text-xl">👨‍🍳</span>
+              Ver Recetas
             </Link>
-
+            
+            <span className="text-orange-200 font-medium">o</span>
+            
             <Link 
-              to="/contacto"
-              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              to="/productos"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:scale-105"
             >
-              <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">📞</div>
-              <h3 className="text-xl font-bold text-neutral-800 mb-2">Contacto</h3>
-              <p className="text-neutral-600">Comunícate con nosotros</p>
+              <span className="text-xl">🛍️</span>
+              Ver Productos
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Latest News Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-neutral-800 mb-6">
-              Últimas Noticias
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <article className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-6">
-              <div className="text-4xl mb-4">🎉</div>
-              <h3 className="text-xl font-bold text-neutral-800 mb-2">Nuevo Recetario Digital</h3>
-              <p className="text-neutral-600 mb-4">
-                Descubre nuestro recetario digital renovado con más de 100 recetas tradicionales.
-              </p>
-              <Link to="/recetas" className="text-primary-600 font-semibold hover:text-primary-700">
-                Ver recetas →
-              </Link>
-            </article>
-
-            <article className="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-2xl p-6">
-              <div className="text-4xl mb-4">🌿</div>
-              <h3 className="text-xl font-bold text-neutral-800 mb-2">Productos Naturales</h3>
-              <p className="text-neutral-600 mb-4">
-                Todos nuestros productos están hechos con ingredientes 100% naturales.
-              </p>
-              <Link to="/productos" className="text-primary-600 font-semibold hover:text-primary-700">
-                Ver productos →
-              </Link>
-            </article>
-
-            <article className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-6">
-              <div className="text-4xl mb-4">🏆</div>
-              <h3 className="text-xl font-bold text-neutral-800 mb-2">40 Años de Tradición</h3>
-              <p className="text-neutral-600 mb-4">
-                Celebramos más de cuatro décadas llevando sabores auténticos a tu mesa.
-              </p>
-              <Link to="/nosotros" className="text-primary-600 font-semibold hover:text-primary-700">
-                Nuestra historia →
-              </Link>
-            </article>
           </div>
         </div>
       </section>

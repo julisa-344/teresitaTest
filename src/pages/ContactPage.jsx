@@ -5,10 +5,10 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
+      <section className="py-16 bg-gradient-to-br from-orange-50 via-amber-50 to-red-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-6xl font-display font-bold text-neutral-800 mb-6">
+            <h1 className="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6 leading-tight">
               Contáctanos
             </h1>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">

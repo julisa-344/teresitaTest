@@ -5,27 +5,27 @@ const AboutHero = () => {
     {
       icon: '🌅',
       title: 'Desde 1986',
-      description: 'Nacimos en Piura con un sueño: preservar los sabores que unen a las familias peruanas'
+      description: ''
     },
     {
       icon: '🌿',
       title: 'Ingredientes Selectos',
-      description: 'Cada condimento es resultado de una cuidadosa selección y procesos artesanales'
+      description: ''
     },
     {
       icon: '🇵🇪',
       title: 'Auténticamente Peruano',
-      description: 'Sabores que han conquistado el corazón y el paladar de millones de familias'
+      description: ''
     },
     {
       icon: '❤️',
       title: 'Tradición Familiar',
-      description: 'De nuestra familia a la tuya, manteniendo viva la esencia de la cocina peruana'
+      description: ''
     }
   ];
 
   return (
-    <section id="nosotros" className="py-8 lg:py-12 bg-gradient-to-br from-white via-primary-50 to-secondary-50 min-h-[calc(100vh-116px)]">
+    <section id="nosotros" className="py-8 lg:py-12 bg-gradient-to-br from-orange-50 via-amber-50 to-red-50 min-h-[calc(100vh-116px)]">
       <div className="container mx-auto px-4 h-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
           {/* Left Content */}
