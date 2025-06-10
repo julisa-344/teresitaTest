@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const RecipeCard = ({ recipe }) => (
   <Link 
     to={`/recetas/${recipe.id}`}
-    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+    className="group bg-neutral-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-neutral-200"
   >
     {/* Recipe Image */}
     <div className="relative h-48 md:h-56 overflow-hidden">
@@ -20,35 +20,35 @@ const RecipeCard = ({ recipe }) => (
       {/* Difficulty Badge */}
       <div className="absolute top-4 left-4">
         <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-          recipe.difficulty === 'Fácil' ? 'bg-green-500/90 text-white' :
-          recipe.difficulty === 'Media' ? 'bg-yellow-500/90 text-white' :
-          'bg-red-500/90 text-white'
+          recipe.difficulty === 'Fácil' ? 'bg-accent-green-600/90 text-neutral-50' :
+          recipe.difficulty === 'Media' ? 'bg-secondary-500/90 text-neutral-50' :
+          'bg-primary-700/90 text-neutral-50'
         }`}>
           {recipe.difficulty}
         </span>
       </div>
 
       {/* Rating */}
-      <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg px-2 py-1">
+      <div className="absolute top-4 right-4 bg-text-primary/70 backdrop-blur-sm rounded-lg px-2 py-1">
         <div className="flex items-center gap-1">
-          <span className="text-yellow-400 text-sm">⭐</span>
-          <span className="text-white text-sm font-medium">{recipe.rating}</span>
+          <span className="text-secondary-400 text-sm">⭐</span>
+          <span className="text-neutral-50 text-sm font-medium">{recipe.rating}</span>
         </div>
       </div>
     </div>
 
     {/* Recipe Content */}
     <div className="p-6">
-      <h3 className="text-xl font-bold text-neutral-800 mb-2 group-hover:text-orange-600 transition-colors">
+      <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-primary-700 transition-colors">
         {recipe.name}
       </h3>
       
-      <p className="text-neutral-600 text-sm mb-4 line-clamp-2">
+      <p className="text-text-secondary text-sm mb-4 line-clamp-2">
         {recipe.description}
       </p>
 
       {/* Recipe Meta Info */}
-      <div className="flex items-center justify-between text-sm text-neutral-500 mb-4">
+      <div className="flex items-center justify-between text-sm text-text-secondary mb-4">
         <div className="flex items-center gap-1">
           <span>⏱️</span>
           <span>{recipe.time} min</span>
@@ -65,13 +65,13 @@ const RecipeCard = ({ recipe }) => (
           {recipe.productosTeresita.slice(0, 2).map((product, index) => (
             <span 
               key={index}
-              className="bg-orange-100 text-orange-700 px-2 py-1 rounded-md text-xs font-medium"
+              className="bg-secondary-100 text-secondary-700 px-2 py-1 rounded-md text-xs font-medium"
             >
               {product}
             </span>
           ))}
           {recipe.productosTeresita.length > 2 && (
-            <span className="text-orange-600 text-xs font-medium">
+            <span className="text-primary-700 text-xs font-medium">
               +{recipe.productosTeresita.length - 2} más
             </span>
           )}
@@ -80,10 +80,10 @@ const RecipeCard = ({ recipe }) => (
 
       {/* Call to Action */}
       <div className="flex items-center justify-between">
-        <span className="text-orange-600 font-medium group-hover:text-orange-700">
+        <span className="text-primary-700 font-medium group-hover:text-primary-800">
           Ver receta completa
         </span>
-        <span className="text-orange-600 group-hover:translate-x-1 transition-transform">
+        <span className="text-primary-700 group-hover:translate-x-1 transition-transform">
           →
         </span>
       </div>
@@ -104,14 +104,14 @@ const RecipeInspiration = ({
   ctaLink = "/recetas"
 }) => {
   return (
-    <section className={`py-20 bg-gradient-to-br from-neutral-50 to-orange-50 ${className}`}>
+    <section className={`py-20 ${className}`}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-neutral-800 mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-text-primary mb-6">
             {title}
           </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -127,7 +127,7 @@ const RecipeInspiration = ({
         <div className="text-center">
           <Link 
             to={ctaLink}
-            className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 bg-primary-700 hover:bg-primary-800 text-neutral-50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <span className="text-xl">👨‍🍳</span>
             {ctaText}

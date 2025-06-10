@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@21st-dev/magic": "^0.0.47",
+    "@heroicons/react": "^2.2.0",
     "lucide-react": "^0.513.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

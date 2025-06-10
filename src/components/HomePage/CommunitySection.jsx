@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import { PlayIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/solid';
 
 /**
  * Testimonial Card Component
  */
 const TestimonialCard = ({ testimonial, featured = false }) => (
-  <div className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
+  <div className={`testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 ${
     featured ? 'lg:col-span-2 lg:row-span-2' : ''
   }`}>
     {/* Profile Header */}
-    <div className={`bg-gradient-to-br from-orange-500 to-red-500 ${featured ? 'p-8' : 'p-6'} text-white`}>
-      <div className="flex items-center gap-4">
-        <div className={`${featured ? 'w-20 h-20' : 'w-16 h-16'} rounded-full overflow-hidden border-4 border-white/30`}>
+    <div className={`bg-primary-700 ${featured ? 'p-4' : 'p-3'} text-white`}>
+      <div className="flex items-center gap-3">
+        <div className={`${featured ? 'w-12 h-12' : 'w-10 h-10'} rounded-full overflow-hidden border-2 border-white/30`}>
           <img 
             src={testimonial.photo} 
             alt={testimonial.name}
@@ -18,11 +19,11 @@ const TestimonialCard = ({ testimonial, featured = false }) => (
           />
         </div>
         <div>
-          <h3 className={`font-bold ${featured ? 'text-2xl' : 'text-lg'}`}>{testimonial.name}</h3>
-          <p className={`text-white/90 ${featured ? 'text-lg' : 'text-sm'}`}>{testimonial.role}</p>
+          <h3 className={`font-display font-bold ${featured ? 'text-lg' : 'text-sm'}`}>{testimonial.name}</h3>
+          <p className={`text-white/90 ${featured ? 'text-sm' : 'text-xs'}`}>{testimonial.role}</p>
           {testimonial.verified && (
             <div className="flex items-center gap-1 mt-1">
-              <span className="text-yellow-300">✓</span>
+              <CheckIcon className="w-4 h-4 text-secondary-300" />
               <span className="text-xs text-white/80">Verificado</span>
             </div>
           )}
@@ -30,34 +31,52 @@ const TestimonialCard = ({ testimonial, featured = false }) => (
       </div>
     </div>
 
+    {/* Video Preview Section */}
+    {testimonial.videoUrl && (
+      <div className="relative">
+        <div className="aspect-[16/5] bg-gray-100 relative overflow-hidden group cursor-pointer"
+             onClick={() => window.openVideoModal(testimonial.videoUrl)}>
+          {/* Video Thumbnail */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-secondary-500/20 flex items-center justify-center">
+            <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 group-hover:bg-white group-hover:scale-110 transition-all duration-300 shadow-lg">
+              <PlayIcon className="w-6 h-6 text-primary-700" />
+            </div>
+          </div>
+          
+          {/* Play Button Overlay */}
+          <div className="absolute top-2 right-2">
+            <div className="bg-primary-700 text-white px-2 py-1 rounded text-xs font-medium">
+              ▶ Video
+            </div>
+          </div>
+          
+          {/* Gradient overlay for better text readability */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-12"></div>
+          <div className="absolute bottom-1 left-2 text-white">
+            <p className="text-xs font-medium">Ver experiencia completa</p>
+          </div>
+        </div>
+      </div>
+    )}
+
     {/* Testimonial Content */}
-    <div className={`${featured ? 'p-8' : 'p-6'}`}>
-      <div className="mb-4">
-        <div className="flex text-yellow-400 mb-2">
+    <div className={`${featured ? 'p-4' : 'p-3'}`}>
+      <div className="mb-3">
+        <div className="flex text-secondary-500 mb-1">
           {[...Array(5)].map((_, i) => (
-            <span key={i} className={i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}>⭐</span>
+            <span key={i} className={`text-xs ${i < testimonial.rating ? 'text-secondary-500' : 'text-gray-300'}`}>⭐</span>
           ))}
         </div>
-        <blockquote className={`text-neutral-700 italic ${featured ? 'text-lg leading-relaxed' : 'text-sm'}`}>
+        <blockquote className={`text-gray-700 italic ${featured ? 'text-sm leading-relaxed' : 'text-xs'}`}>
           "{testimonial.quote}"
         </blockquote>
       </div>
 
       {testimonial.productUsed && (
-        <div className="bg-orange-50 rounded-lg p-3 mb-4">
-          <p className="text-orange-700 text-xs font-medium mb-1">Producto usado:</p>
-          <p className="text-orange-800 font-semibold">{testimonial.productUsed}</p>
+        <div className="bg-secondary-50 rounded-lg p-2 border border-secondary-200">
+          <p className="text-secondary-700 text-xs font-medium mb-1">Producto usado:</p>
+          <p className="text-secondary-800 font-semibold text-xs">{testimonial.productUsed}</p>
         </div>
-      )}
-
-      {testimonial.videoUrl && (
-        <button 
-          onClick={() => window.openVideoModal(testimonial.videoUrl)}
-          className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-        >
-          <span>▶️</span>
-          Ver video
-        </button>
       )}
     </div>
   </div>
@@ -73,13 +92,13 @@ const VideoModal = ({ isOpen, videoUrl, onClose }) => {
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh]">
         {/* Modal Header */}
-        <div className="flex items-center justify-between p-6 border-b">
-          <h3 className="text-xl font-bold text-neutral-800">Video de Susy Díaz</h3>
+        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <h3 className="text-xl font-display font-bold text-gray-800">Video de Susy Díaz</h3>
           <button 
             onClick={onClose}
-            className="w-8 h-8 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors"
+            className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
           >
-            ✕
+            <XMarkIcon className="w-5 h-5 text-gray-600" />
           </button>
         </div>
 
@@ -139,16 +158,6 @@ const CommunitySection = ({
       rating: 5,
       verified: false,
       productUsed: 'Palillo Teresita'
-    },
-    {
-      id: 'carlos-ruiz',
-      name: 'Carlos Ruiz',
-      role: 'Food Blogger',
-      photo: '/img/blogger-placeholder.jpg',
-      quote: 'Teresita mantiene viva la tradición culinaria peruana. Sus productos son auténticos.',
-      rating: 5,
-      verified: true,
-      productUsed: 'Sillao Kino'
     }
   ]
 }) => {
@@ -172,20 +181,20 @@ const CommunitySection = ({
 
   return (
     <>
-      <section className={`py-20 bg-gradient-to-br from-red-50 to-orange-50 ${className}`}>
+      <section className={`mb-20 ${className}`}>
         <div className="container mx-auto px-4">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-neutral-800 mb-6">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-3">
               {title}
             </h2>
-            <p className="text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base text-gray-700 max-w-3xl mx-auto leading-relaxed">
               {subtitle}
             </p>
           </div>
 
           {/* Testimonials Grid */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid lg:grid-cols-3 gap-4 mb-10">
             {/* Featured Testimonial (Susy Díaz) */}
             {featuredTestimonial && (
               <TestimonialCard testimonial={featuredTestimonial} featured={true} />
@@ -198,41 +207,23 @@ const CommunitySection = ({
           </div>
 
           {/* Community Stats */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-orange-600">10,000+</div>
-                <p className="text-neutral-600 text-sm">Familias que confían</p>
+          <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
+            <div className="grid md:grid-cols-4 gap-4 text-center">
+              <div className="space-y-1">
+                <div className="text-2xl font-bold text-primary-700">10,000+</div>
+                <p className="text-gray-600 text-xs">Familias que confían</p>
               </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-red-600">39</div>
-                <p className="text-neutral-600 text-sm">Años de experiencia</p>
+              <div className="space-y-1">
+                <div className="text-2xl font-bold text-secondary-600">39</div>
+                <p className="text-gray-600 text-xs">Años de experiencia</p>
               </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-green-600">4.9/5</div>
-                <p className="text-neutral-600 text-sm">Calificación promedio</p>
+              <div className="space-y-1">
+                <div className="text-2xl font-bold text-green-600">4.9/5</div>
+                <p className="text-gray-600 text-xs">Calificación promedio</p>
               </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-blue-600">500+</div>
-                <p className="text-neutral-600 text-sm">Recetas compartidas</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Join Community CTA */}
-          <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">¡Únete a nuestra comunidad!</h3>
-              <p className="text-lg mb-6 text-white/90">
-                Comparte tus recetas y experiencias con productos Teresita
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-50 transition-colors">
-                  📸 Comparte tu receta
-                </button>
-                <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30 transition-colors">
-                  💬 Únete al grupo
-                </button>
+              <div className="space-y-1">
+                <div className="text-2xl font-bold text-orange-600">500+</div>
+                <p className="text-gray-600 text-xs">Recetas compartidas</p>
               </div>
             </div>
           </div>

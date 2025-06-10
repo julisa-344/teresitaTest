@@ -1,4 +1,10 @@
 import React from 'react';
+import { 
+  MapPinIcon, 
+  TruckIcon, 
+  ClockIcon, 
+  GiftIcon 
+} from '@heroicons/react/24/outline';
 import { partners } from '../../data/aboutData';
 
 const PartnerCard = ({ partner, index }) => {
@@ -48,7 +54,9 @@ const PartnersSection = () => {
         {/* Call to Action */}
         <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl p-8 lg:p-12 text-center text-white shadow-2xl">
           <div className="max-w-3xl mx-auto">
-            <div className="text-5xl mb-6">📍</div>
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <MapPinIcon className="w-8 h-8 text-white" />
+            </div>
             <h3 className="text-3xl lg:text-4xl font-bold mb-4">
               ¿No encuentras nuestros productos?
             </h3>
@@ -68,7 +76,7 @@ const PartnersSection = () => {
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="text-center">
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🚚</span>
+              <TruckIcon className="w-8 h-8 text-primary-600" />
             </div>
             <h4 className="text-lg font-bold text-neutral-800 mb-2">
               Distribución Nacional
@@ -80,7 +88,7 @@ const PartnersSection = () => {
           
           <div className="text-center">
             <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">⏰</span>
+              <ClockIcon className="w-8 h-8 text-secondary-600" />
             </div>
             <h4 className="text-lg font-bold text-neutral-800 mb-2">
               Siempre Disponible
@@ -92,7 +100,7 @@ const PartnersSection = () => {
           
           <div className="text-center">
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">💝</span>
+              <GiftIcon className="w-8 h-8 text-primary-600" />
             </div>
             <h4 className="text-lg font-bold text-neutral-800 mb-2">
               Promociones Especiales

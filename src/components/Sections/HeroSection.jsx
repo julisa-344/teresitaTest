@@ -34,7 +34,7 @@ const HeroSection = ({ config = heroConfig }) => {
           backgroundImage: `linear-gradient(
             135deg,
             rgba(0, 0, 0, 0.5) 0%,
-            rgba(239, 68, 68, 0.3) 25%,
+            rgba(192, 40, 35, 0.3) 25%,
             rgba(0, 0, 0, 0.6) 75%,
             rgba(0, 0, 0, 0.7) 100%
           ), url('${config.backgroundImage.src}')`
@@ -63,7 +63,7 @@ const HeroSection = ({ config = heroConfig }) => {
               />
               
               <HeroDescription
-                className="text-neutral-200 animate-slide-up"
+                className="text-neutral-100 animate-slide-up"
                 text={config.description.text}
               />
               

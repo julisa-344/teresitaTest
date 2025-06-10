@@ -1,24 +1,33 @@
 import React from 'react';
+import { 
+  CalendarIcon, 
+  CheckCircleIcon, 
+  FlagIcon, 
+  HeartIcon,
+  StarIcon,
+  HandRaisedIcon,
+  SparklesIcon
+} from '@heroicons/react/24/outline';
 
 const AboutHero = () => {
   const features = [
     {
-      icon: '🌅',
+      icon: CalendarIcon,
       title: 'Desde 1986',
       description: ''
     },
     {
-      icon: '🌿',
+      icon: CheckCircleIcon,
       title: 'Ingredientes Selectos',
       description: ''
     },
     {
-      icon: '🇵🇪',
+      icon: FlagIcon,
       title: 'Auténticamente Peruano',
       description: ''
     },
     {
-      icon: '❤️',
+      icon: HeartIcon,
       title: 'Tradición Familiar',
       description: ''
     }
@@ -52,21 +61,24 @@ const AboutHero = () => {
             </p>
 
             <div className="space-y-4">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-3 group">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg flex items-center justify-center text-lg group-hover:scale-110 transition-transform duration-300">
-                    {feature.icon}
+              {features.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                  <div key={index} className="flex items-start space-x-3 group">
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-5 h-5 text-primary-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-neutral-800 mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-neutral-600 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-800 mb-1">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -105,19 +117,19 @@ const AboutHero = () => {
                 <div className="flex justify-center space-x-6">
                   <div className="text-center">
                     <div className="w-10 h-10 bg-gradient-to-br from-red-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-lg">❤️</span>
+                      <HeartIcon className="w-5 h-5 text-red-600" />
                     </div>
                     <span className="text-xs font-medium text-neutral-700">Pasión</span>
                   </div>
                   <div className="text-center">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-lg">🤝</span>
+                      <HandRaisedIcon className="w-5 h-5 text-blue-600" />
                     </div>
                     <span className="text-xs font-medium text-neutral-700">Confianza</span>
                   </div>
                   <div className="text-center">
                     <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-lg">🌱</span>
+                      <SparklesIcon className="w-5 h-5 text-green-600" />
                     </div>
                     <span className="text-xs font-medium text-neutral-700">Tradición</span>
                   </div>

@@ -17,7 +17,7 @@ const HeroHeadline = ({
 }) => (
   <h1 className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 leading-tight ${className}`}>
     {primaryText}{" "}
-    <span className="text-orange-300">{accentText}</span>{" "}
+    <span className="text-secondary-300">{accentText}</span>{" "}
     {secondaryText}
   </h1>
 );

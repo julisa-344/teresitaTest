@@ -1,5 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { 
+  VideoCameraIcon, 
+  PhotoIcon, 
+  ChatBubbleLeftRightIcon,
+  GlobeAltIcon 
+} from '@heroicons/react/24/outline';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -72,19 +78,22 @@ const Footer = () => {
               <h4 className="font-semibold text-lg">Síguenos</h4>
               <div className="flex space-x-4">
                 {[
-                  { name: 'Facebook', icon: '📘', color: 'hover:bg-blue-600' },
-                  { name: 'Instagram', icon: '📷', color: 'hover:bg-pink-600' },
-                  { name: 'YouTube', icon: '📺', color: 'hover:bg-red-600' },
-                  { name: 'WhatsApp', icon: '💬', color: 'hover:bg-green-600' }
-                ].map((social) => (
-                  <button
-                    key={social.name}
-                    className={`w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center text-lg hover:text-white transition-all duration-300 transform hover:scale-105 ${social.color}`}
-                    title={social.name}
-                  >
-                    {social.icon}
-                  </button>
-                ))}
+                  { name: 'Facebook', icon: GlobeAltIcon, color: 'hover:bg-blue-600' },
+                  { name: 'Instagram', icon: PhotoIcon, color: 'hover:bg-pink-600' },
+                  { name: 'YouTube', icon: VideoCameraIcon, color: 'hover:bg-red-600' },
+                  { name: 'WhatsApp', icon: ChatBubbleLeftRightIcon, color: 'hover:bg-green-600' }
+                ].map((social) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <button
+                      key={social.name}
+                      className={`w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:text-white transition-all duration-300 transform hover:scale-105 ${social.color}`}
+                      title={social.name}
+                    >
+                      <IconComponent className="w-5 h-5" />
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

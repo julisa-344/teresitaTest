@@ -1,4 +1,10 @@
 import React from 'react';
+import { 
+  HeartIcon, 
+  HandRaisedIcon, 
+  SparklesIcon, 
+  UserGroupIcon 
+} from '@heroicons/react/24/outline';
 import { qualityCommitments, teamMembers } from '../../data/aboutData';
 
 const QualityCard = ({ commitment, index }) => {
@@ -96,7 +102,7 @@ const QualityCommitment = () => {
             <div className="flex flex-wrap justify-center gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">❤️</span>
+                  <HeartIcon className="w-8 h-8 text-red-600" />
                 </div>
                 <span className="font-semibold text-neutral-700">Pasión</span>
                 <p className="text-sm text-neutral-600 mt-1">Por la calidad</p>
@@ -104,7 +110,7 @@ const QualityCommitment = () => {
               
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">🤝</span>
+                  <HandRaisedIcon className="w-8 h-8 text-blue-600" />
                 </div>
                 <span className="font-semibold text-neutral-700">Confianza</span>
                 <p className="text-sm text-neutral-600 mt-1">En cada producto</p>
@@ -112,7 +118,7 @@ const QualityCommitment = () => {
               
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">🌱</span>
+                  <SparklesIcon className="w-8 h-8 text-green-600" />
                 </div>
                 <span className="font-semibold text-neutral-700">Tradición</span>
                 <p className="text-sm text-neutral-600 mt-1">Con innovación</p>
@@ -120,7 +126,7 @@ const QualityCommitment = () => {
               
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">👨‍👩‍👧‍👦</span>
+                  <UserGroupIcon className="w-8 h-8 text-orange-600" />
                 </div>
                 <span className="font-semibold text-neutral-700">Familia</span>
                 <p className="text-sm text-neutral-600 mt-1">En cada mesa</p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { CursorArrowRaysIcon } from '@heroicons/react/24/outline';
 import { timelineData } from '../../data/aboutData';
 
 const TimelineItem = ({ item, index, isLast }) => {
@@ -86,7 +87,7 @@ const StoryTimeline = () => {
         {/* Bottom decorative element */}
         <div className="text-center mt-20">
           <div className="inline-block bg-gradient-to-r from-primary-100 to-secondary-100 rounded-full p-6">
-            <div className="text-4xl">🎯</div>
+            <CursorArrowRaysIcon className="w-12 h-12 text-primary-600 mx-auto" />
           </div>
           <p className="text-lg text-neutral-600 mt-4 max-w-2xl mx-auto">
             Cada hito en nuestra historia ha sido guiado por el mismo propósito: 

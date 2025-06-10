@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { 
+  ArchiveBoxIcon, 
+  TrophyIcon, 
+  CheckCircleIcon,
+  TruckIcon,
+  ShoppingBagIcon 
+} from '@heroicons/react/24/outline';
 
 /**
  * Product Category Card Component
@@ -7,7 +14,7 @@ import { Link } from 'react-router-dom';
 const CategoryCard = ({ category }) => (
   <Link 
     to={`/productos?categoria=${category.id}`}
-    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+    className="group bg-neutral-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-neutral-200"
   >
     {/* Category Background with Gradient */}
     <div className={`relative h-32 bg-gradient-to-br ${category.color} flex items-center justify-center`}>
@@ -17,29 +24,29 @@ const CategoryCard = ({ category }) => (
       </div>
       
       {/* Decorative Pattern */}
-      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute top-4 right-4 w-16 h-16 border-2 border-white/30 rounded-full"></div>
-        <div className="absolute bottom-4 left-4 w-8 h-8 border-2 border-white/30 rounded-full"></div>
+      <div className="absolute inset-0 bg-neutral-50/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute top-4 right-4 w-16 h-16 border-2 border-neutral-50/30 rounded-full"></div>
+        <div className="absolute bottom-4 left-4 w-8 h-8 border-2 border-neutral-50/30 rounded-full"></div>
       </div>
     </div>
 
     {/* Category Content */}
     <div className="p-6">
-      <h3 className="text-xl font-bold text-neutral-800 mb-3 group-hover:text-orange-600 transition-colors">
+      <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-primary-700 transition-colors">
         {category.name}
       </h3>
       
-      <p className="text-neutral-600 text-sm mb-4 leading-relaxed">
+      <p className="text-text-secondary text-sm mb-4 leading-relaxed">
         {category.description}
       </p>
 
       {/* Product Count */}
-      <div className="flex items-center justify-between text-sm text-neutral-500 mb-4">
+      <div className="flex items-center justify-between text-sm text-text-secondary mb-4">
         <span className="flex items-center gap-1">
-          <span>📦</span>
+          <ArchiveBoxIcon className="w-4 h-4" />
           <span>{category.products.length} productos</span>
         </span>
-        <span className="text-orange-600 font-medium group-hover:text-orange-700">
+        <span className="text-primary-700 font-medium group-hover:text-primary-800">
           Explorar
         </span>
       </div>
@@ -92,14 +99,14 @@ const ProductSolution = ({
   ctaLink = "/productos"
 }) => {
   return (
-    <section className={`py-20 bg-white ${className}`}>
+    <section className={`py-20 ${className}`}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-neutral-800 mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-text-primary mb-6">
             {title}
           </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -112,34 +119,34 @@ const ProductSolution = ({
         </div>
 
         {/* Featured Benefits */}
-        <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 mb-12">
+        <div className="bg-primary-100 rounded-2xl p-8 mb-12 ">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="space-y-3">
-              <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl">🏆</span>
+              <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto">
+                <TrophyIcon className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="font-bold text-neutral-800">Calidad Premium</h3>
-              <p className="text-neutral-600 text-sm">
+              <h3 className="font-bold text-text-primary">Calidad Premium</h3>
+              <p className="text-text-secondary text-sm">
                 Productos seleccionados con los más altos estándares de calidad
               </p>
             </div>
             
             <div className="space-y-3">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl">🌿</span>
+              <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto">
+                <CheckCircleIcon className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="font-bold text-neutral-800">100% Natural</h3>
-              <p className="text-neutral-600 text-sm">
+              <h3 className="font-bold text-text-primary">100% Natural</h3>
+              <p className="text-text-secondary text-sm">
                 Ingredientes naturales sin conservantes artificiales
               </p>
             </div>
-            
+
             <div className="space-y-3">
-              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl">🚚</span>
+              <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto">
+                <TruckIcon className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="font-bold text-neutral-800">Disponible Siempre</h3>
-              <p className="text-neutral-600 text-sm">
+              <h3 className="font-bold text-text-primary">Disponible Siempre</h3>
+              <p className="text-text-secondary text-sm">
                 Encuentra nuestros productos en tu tienda de confianza
               </p>
             </div>
@@ -150,9 +157,9 @@ const ProductSolution = ({
         <div className="text-center">
           <Link 
             to={ctaLink}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 bg-primary-700 hover:from-primary-800 hover:to-secondary-600 text-neutral-50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            <span className="text-xl">🛍️</span>
+            <ShoppingBagIcon className="w-6 h-6" />
             {ctaText}
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>

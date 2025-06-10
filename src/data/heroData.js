@@ -22,12 +22,12 @@ export const heroConfig = {
     primary: {
       to: "/recetas",
       text: "Explorar Recetas",
-      icon: "👨‍🍳"
+      icon: "BookOpenIcon"
     },
     secondary: {
       to: "/productos",
       text: "Ver Nuestros Productos", 
-      icon: "🛍️"
+      icon: "ShoppingBagIcon"
     }
   },
   

@@ -1,5 +1,17 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { 
+  ArchiveBoxIcon, 
+  CursorArrowRaysIcon, 
+  CheckCircleIcon, 
+  TrophyIcon, 
+  LockClosedIcon,
+  ChartBarIcon,
+  UserGroupIcon,
+  BoltIcon,
+  LightBulbIcon,
+  FolderIcon
+} from '@heroicons/react/24/outline';
 import { getProductById } from '../data/products';
 import { getRecipesForProduct, getProductUsageStats } from '../utils/productRecipeIntegration';
 
@@ -41,8 +53,8 @@ const ProductDetailPage = () => {
               e.target.nextSibling.style.display = 'flex';
             }}
           />
-          <div className="hidden w-full h-full items-center justify-center text-8xl">
-            📦
+          <div className="hidden w-full h-full items-center justify-center">
+            <ArchiveBoxIcon className="w-24 h-24 text-neutral-400" />
           </div>
         </div>
 
@@ -107,27 +119,35 @@ const ProductDetailPage = () => {
       {/* Características del producto */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-neutral-800 mb-4 flex items-center">
-          <span className="text-3xl mr-3">🎯</span>
+          <CursorArrowRaysIcon className="w-8 h-8 text-primary-600 mr-3" />
           Por qué elegir este producto
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-white rounded-xl p-4 shadow-md">
-            <div className="text-2xl mb-2">🌿</div>
+            <div className="mb-2">
+              <CheckCircleIcon className="w-8 h-8 text-green-600" />
+            </div>
             <h3 className="font-semibold text-neutral-800 mb-1">100% Natural</h3>
             <p className="text-sm text-neutral-600">Ingredientes seleccionados de la más alta calidad</p>
           </div>
           <div className="bg-white rounded-xl p-4 shadow-md">
-            <div className="text-2xl mb-2">🏆</div>
+            <div className="mb-2">
+              <TrophyIcon className="w-8 h-8 text-yellow-600" />
+            </div>
             <h3 className="font-semibold text-neutral-800 mb-1">Tradición Familiar</h3>
             <p className="text-sm text-neutral-600">40 años de experiencia en sabores auténticos</p>
           </div>
           <div className="bg-white rounded-xl p-4 shadow-md">
-            <div className="text-2xl mb-2">🔒</div>
+            <div className="mb-2">
+              <LockClosedIcon className="w-8 h-8 text-blue-600" />
+            </div>
             <h3 className="font-semibold text-neutral-800 mb-1">Calidad Certificada</h3>
             <p className="text-sm text-neutral-600">Controles rigurosos de calidad y pureza</p>
           </div>
           <div className="bg-white rounded-xl p-4 shadow-md">
-            <div className="text-2xl mb-2">📦</div>
+            <div className="mb-2">
+              <ArchiveBoxIcon className="w-8 h-8 text-purple-600" />
+            </div>
             <h3 className="font-semibold text-neutral-800 mb-1">Envase Premium</h3>
             <p className="text-sm text-neutral-600">Protege el sabor y mantiene la frescura</p>
           </div>
@@ -160,8 +180,8 @@ const ProductDetailPage = () => {
             e.target.nextSibling.style.display = 'flex';
           }}
         />
-        <div className="hidden w-full h-full items-center justify-center text-4xl bg-neutral-100">
-          🍽️
+        <div className="hidden w-full h-full items-center justify-center bg-neutral-100">
+          <ChartBarIcon className="w-16 h-16 text-neutral-400" />
         </div>
       </div>
       <div className="p-6">
@@ -179,7 +199,7 @@ const ProductDetailPage = () => {
         <p className="text-neutral-600 text-sm mb-3">{recipe.description}</p>
         <div className="flex items-center text-sm text-neutral-500">
           <span className="flex items-center">
-            <span className="text-neutral-400 mr-1">👥</span>
+            <UserGroupIcon className="w-4 h-4 text-neutral-400 mr-1" />
             {recipe.portions} porciones
           </span>
         </div>
@@ -222,7 +242,9 @@ const ProductDetailPage = () => {
           </>
         ) : (
           <div className="text-center py-12">
-            <div className="text-6xl mb-4">👨‍🍳</div>
+            <div className="w-24 h-24 mx-auto mb-4">
+              <BoltIcon className="w-full h-full text-neutral-400" />
+            </div>
             <h3 className="text-2xl font-bold text-neutral-800 mb-4">
               ¡Pronto más recetas!
             </h3>
@@ -283,7 +305,9 @@ const ProductDetailPage = () => {
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-6">
-                <div className="text-3xl mb-4">💡</div>
+                <div className="mb-4">
+                  <LightBulbIcon className="w-12 h-12 text-yellow-600" />
+                </div>
                 <h3 className="text-xl font-bold text-neutral-800 mb-3">Consejos de Uso</h3>
                 <ul className="space-y-2 text-neutral-700">
                   <li>• Agrega al final de la cocción para preservar el aroma</li>
@@ -294,7 +318,9 @@ const ProductDetailPage = () => {
               </div>
               
               <div className="bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-2xl p-6">
-                <div className="text-3xl mb-4">🗄️</div>
+                <div className="mb-4">
+                  <FolderIcon className="w-12 h-12 text-orange-600" />
+                </div>
                 <h3 className="text-xl font-bold text-neutral-800 mb-3">Conservación</h3>
                 <ul className="space-y-2 text-neutral-700">
                   <li>• Guarda en lugar fresco y seco</li>
