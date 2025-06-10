@@ -26,7 +26,7 @@ const ScrollIndicator = () => (
 // Main Hero Section Component
 const HeroSection = ({ config = heroConfig }) => {
   return (
-    <section id="inicio" className="relative min-h-screen overflow-hidden">
+    <section id="inicio" className="relative overflow-hidden" style={{ height: 'calc(100vh - 116px)' }}>
       {/* Hero Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -45,7 +45,7 @@ const HeroSection = ({ config = heroConfig }) => {
       <div className="absolute inset-0 bg-food-texture opacity-10" />
       
       {/* Main Content */}
-      <div className="relative min-h-screen flex items-center">
+      <div className="relative h-full flex items-center">
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-4xl">
             {/* Content arranged vertically for better flow */}

@@ -37,10 +37,10 @@ const HomePage = () => {
           </p>
           
           {/* Rutas de Navegación Duales */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mx-auto">
             <Link 
               to="/recetas"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-neutral-50 text-primary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-secondary-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="group bg-neutral-100 hover:bg-primary-800 hover:text-neutral-50 text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
             >
               <BookOpenIcon className="w-6 h-6" />
               Ver Recetas

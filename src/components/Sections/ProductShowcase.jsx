@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductShowcase = () => {
   const products = [
@@ -88,9 +89,12 @@ const ProductShowcase = () => {
               Explora nuestro catálogo completo de productos y encuentra 
               exactamente lo que necesitas para tus recetas.
             </p>
-            <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <Link 
+              to="/productos"
+              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
               Ver todos los productos
-            </button>
+            </Link>
           </div>
         </div>
       </div>

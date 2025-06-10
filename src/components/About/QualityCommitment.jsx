@@ -3,16 +3,43 @@ import {
   HeartIcon, 
   HandRaisedIcon, 
   SparklesIcon, 
-  UserGroupIcon 
+  UserGroupIcon,
+  GlobeAltIcon,
+  CogIcon,
+  MagnifyingGlassIcon,
+  UserIcon,
+  BriefcaseIcon,
+  BeakerIcon,
+  AcademicCapIcon,
+  LightBulbIcon
 } from '@heroicons/react/24/outline';
 import { qualityCommitments, teamMembers } from '../../data/aboutData';
 
+// Mapeo de nombres de iconos a componentes
+const iconMap = {
+  GlobeAltIcon,
+  CogIcon,
+  MagnifyingGlassIcon,
+  LeafIcon: SparklesIcon, // Usamos SparklesIcon como fallback para LeafIcon
+  UserIcon,
+  BriefcaseIcon,
+  BeakerIcon,
+  AcademicCapIcon,
+  LightBulbIcon,
+  HeartIcon,
+  HandRaisedIcon,
+  SparklesIcon,
+  UserGroupIcon
+};
+
 const QualityCard = ({ commitment, index }) => {
+  const IconComponent = iconMap[commitment.icon];
+  
   return (
     <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100">
       <div className="text-center">
-        <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-          <span className="text-3xl">{commitment.icon}</span>
+        <div className="w-16 h-16 bg-primary-700 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
         </div>
         <h3 className="text-xl font-bold text-neutral-800 mb-4">
           {commitment.title}
@@ -26,11 +53,13 @@ const QualityCard = ({ commitment, index }) => {
 };
 
 const TeamMemberCard = ({ member, index }) => {
+  const IconComponent = iconMap[member.icon];
+  
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100 group">
       <div className="text-center">
-        <div className="w-20 h-20 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-          <span className="text-3xl">{member.icon}</span>
+        <div className="w-20 h-20 bg-primary-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+          {IconComponent && <IconComponent className="w-10 h-10 text-neutral-100" />}
         </div>
         <h3 className="text-lg font-bold text-neutral-800 mb-2">
           {member.name}

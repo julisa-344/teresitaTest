@@ -22,26 +22,40 @@ const HeroCTAs = ({
     text: "Ver Nuestros Productos",
     icon: "ShoppingBagIcon"
   }
-}) => (
-  <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
-    {/* Primary CTA - Recipes */}
-    <Link 
-      to={recipesButton.to}
-      className="group bg-primary-700 hover:bg-primary-800 text-neutral-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-    >
-      <span className="text-xl group-hover:animate-pulse">{recipesButton.icon}</span>
-      {recipesButton.text}
-    </Link>
-    
-    {/* Secondary CTA - Products */}
-    <Link 
-      to={productsButton.to}
-      className="group bg-neutral-50/10 backdrop-blur-sm border-2 border-neutral-50/30 hover:bg-neutral-50/20 text-neutral-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-    >
-      <span className="text-xl group-hover:animate-pulse">{productsButton.icon}</span>
-      {productsButton.text}
-    </Link>
-  </div>
-);
+}) => {
+  // Helper function to render the correct icon
+  const renderIcon = (iconName) => {
+    switch(iconName) {
+      case 'BookOpenIcon':
+        return <BookOpenIcon className="w-6 h-6" />;
+      case 'ShoppingBagIcon':
+        return <ShoppingBagIcon className="w-6 h-6" />;
+      default:
+        return <BookOpenIcon className="w-6 h-6" />;
+    }
+  };
+
+  return (
+    <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
+      {/* Primary CTA - Recipes */}
+      <Link 
+        to={recipesButton.to}
+        className="group bg-primary-700 hover:bg-primary-800 text-neutral-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+      >
+        <span className="group-hover:animate-pulse">{renderIcon(recipesButton.icon)}</span>
+        {recipesButton.text}
+      </Link>
+      
+      {/* Secondary CTA - Products */}
+      <Link 
+        to={productsButton.to}
+        className="group bg-neutral-50/10 backdrop-blur-sm border-2 border-neutral-50/30 hover:bg-neutral-50/20 text-neutral-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+      >
+        <span className="group-hover:animate-pulse">{renderIcon(productsButton.icon)}</span>
+        {productsButton.text}
+      </Link>
+    </div>
+  );
+};
 
 export default HeroCTAs;

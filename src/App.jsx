@@ -5,7 +5,6 @@ import Footer from './components/Layout/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
-import AllProductsPage from './pages/AllProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import RecipesPage from './pages/RecipesPage';
 import RecipeDetailPage from './pages/RecipeDetailPage';
@@ -37,7 +36,6 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/nosotros" element={<AboutPage />} />
             <Route path="/productos" element={<ProductsPage />} />
-            <Route path="/productos/todos" element={<AllProductsPage />} />
             <Route path="/productos/:productId" element={<ProductDetailPage />} />
             <Route path="/recetas" element={<RecipesPage />} />
             <Route path="/receta/:id" element={<RecipeDetailPage />} />

@@ -46,13 +46,13 @@ const RecipeDetailPage = () => {
   const adjustedIngredients = recipe ? adjustIngredients(recipe.ingredientes, recipe.portions, servings) : [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
+    <div className="min-h-screen">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
+      <div className="bg- bg-primary-100  shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link 
             to="/recetas" 
-            className="inline-flex items-center text-orange-600 hover:text-orange-700 mb-4"
+            className="inline-flex items-center text-primary-700 hover:text-orange-700 mb-4"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             Volver a recetas
@@ -68,15 +68,15 @@ const RecipeDetailPage = () => {
               {/* Información básica */}
               <div className="flex flex-wrap gap-6 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <Clock className="h-5 w-5 text-orange-600 mr-2" />
+                  <Clock className="h-5 w-5 text-primary-700 mr-2" />
                   <span>{recipe.time} minutos</span>
                 </div>
                 <div className="flex items-center">
-                  <Users className="h-5 w-5 text-orange-600 mr-2" />
+                  <Users className="h-5 w-5 text-primary-700 mr-2" />
                   <span>{recipe.portions} personas</span>
                 </div>
                 <div className="flex items-center">
-                  <ChefHat className="h-5 w-5 text-orange-600 mr-2" />
+                  <ChefHat className="h-5 w-5 text-primary-700 mr-2" />
                   <span>Dificultad {recipe.difficulty}</span>
                 </div>
                 <div className="flex items-center">
@@ -89,7 +89,7 @@ const RecipeDetailPage = () => {
             
             {/* Botones de acción */}
             <div className="flex flex-wrap gap-3 mt-6 lg:mt-0">
-              <button
+              {/* <button
                 onClick={() => setIsFavorite(!isFavorite)}
                 className={`flex items-center px-4 py-2 rounded-lg border transition-colors ${
                   isFavorite 
@@ -99,11 +99,11 @@ const RecipeDetailPage = () => {
               >
                 <Heart className={`h-5 w-5 mr-2 ${isFavorite ? 'fill-current' : ''}`} />
                 {isFavorite ? 'Guardado' : 'Guardar'}
-              </button>
+              </button> */}
               
               <button
                 onClick={downloadRecipe}
-                className="flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+                className="flex items-center px-4 py-2 bg-primary-700 text-neutral-100 rounded-lg hover:bg-orange-800 transition-colors"
               >
                 <Download className="h-5 w-5 mr-2" />
                 Descargar receta

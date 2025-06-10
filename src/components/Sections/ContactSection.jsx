@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import { 
+  MapPinIcon, 
+  PhoneIcon, 
+  EnvelopeIcon, 
+  ClockIcon,
+  ChatBubbleLeftRightIcon,
+  PlayIcon,
+  CameraIcon,
+  UserGroupIcon
+} from '@heroicons/react/24/outline';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -26,22 +36,22 @@ const ContactSection = () => {
 
   const contactInfo = [
     {
-      icon: '📍',
+      icon: MapPinIcon,
       title: 'Dirección',
       details: ['Av. Industrial 123', 'Lima, Perú']
     },
     {
-      icon: '📞',
+      icon: PhoneIcon,
       title: 'Teléfono',
       details: ['+51 1 234-5678', '+51 987 654 321']
     },
     {
-      icon: '✉️',
+      icon: EnvelopeIcon,
       title: 'Email',
       details: ['info@teresita.com.pe', 'ventas@teresita.com.pe']
     },
     {
-      icon: '🕒',
+      icon: ClockIcon,
       title: 'Horarios',
       details: ['Lun - Vie: 8:00 AM - 6:00 PM', 'Sáb: 9:00 AM - 1:00 PM']
     }
@@ -53,7 +63,7 @@ const ContactSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="mb-6">
-            <span className="inline-block bg-secondary-100 text-secondary-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">
+            <span className="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">
               Contáctanos
             </span>
           </div>
@@ -74,23 +84,26 @@ const ContactSection = () => {
             </h3>
             
             <div className="space-y-6 mb-8">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl flex items-center justify-center text-2xl">
-                    {info.icon}
+              {contactInfo.map((info, index) => {
+                const IconComponent = info.icon;
+                return (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary-700 rounded-xl flex items-center justify-center">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-neutral-800 mb-1">
+                        {info.title}
+                      </h4>
+                      {info.details.map((detail, detailIndex) => (
+                        <p key={detailIndex} className="text-neutral-600">
+                          {detail}
+                        </p>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-neutral-800 mb-1">
-                      {info.title}
-                    </h4>
-                    {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-neutral-600">
-                        {detail}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Social Media */}
@@ -100,19 +113,22 @@ const ContactSection = () => {
               </h4>
               <div className="flex space-x-4">
                 {[
-                  { name: 'Facebook', icon: '📘', color: 'hover:bg-blue-500' },
-                  { name: 'Instagram', icon: '📷', color: 'hover:bg-pink-500' },
-                  { name: 'YouTube', icon: '📺', color: 'hover:bg-red-500' },
-                  { name: 'WhatsApp', icon: '💬', color: 'hover:bg-green-500' }
-                ].map((social) => (
-                  <button
-                    key={social.name}
-                    className={`w-12 h-12 bg-neutral-100 rounded-xl flex items-center justify-center text-xl hover:text-white transition-all duration-300 transform hover:scale-105 ${social.color}`}
-                    title={social.name}
-                  >
-                    {social.icon}
-                  </button>
-                ))}
+                  { name: 'Facebook', icon: UserGroupIcon, color: 'hover:bg-blue-500' },
+                  { name: 'Instagram', icon: CameraIcon, color: 'hover:bg-pink-500' },
+                  { name: 'YouTube', icon: PlayIcon, color: 'hover:bg-red-500' },
+                  { name: 'WhatsApp', icon: ChatBubbleLeftRightIcon, color: 'hover:bg-green-500' }
+                ].map((social) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <button
+                      key={social.name}
+                      className={`w-12 h-12 bg-neutral-100 rounded-xl flex items-center justify-center hover:text-white transition-all duration-300 transform hover:scale-105 ${social.color}`}
+                      title={social.name}
+                    >
+                      <IconComponent className="w-6 h-6" />
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -197,7 +213,7 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                className="w-full bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-primary-700 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Enviar mensaje
               </button>

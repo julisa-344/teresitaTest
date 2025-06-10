@@ -11,7 +11,7 @@ const PartnerCard = ({ partner, index }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100 group">
       <div className="text-center">
-        <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+        <div className="w-16 h-16 bg-primary-700 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
           <span className="text-3xl">{partner.logo}</span>
         </div>
         <h3 className="text-lg font-bold text-neutral-800 mb-3">
@@ -27,7 +27,7 @@ const PartnerCard = ({ partner, index }) => {
 
 const PartnersSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-primary-50">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-block mb-6">
@@ -52,7 +52,7 @@ const PartnersSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl p-8 lg:p-12 text-center text-white shadow-2xl">
+        <div className="bg-primary-700 rounded-3xl p-8 lg:p-12 text-center text-white shadow-2xl">
           <div className="max-w-3xl mx-auto">
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <MapPinIcon className="w-8 h-8 text-white" />

@@ -86,9 +86,6 @@ const ProductDetailPage = () => {
           <span className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">
             {product.brand}
           </span>
-          <span className="bg-neutral-100 text-neutral-600 px-3 py-1 rounded-full text-sm">
-            Premium Quality
-          </span>
         </div>
         <h1 className="text-4xl lg:text-5xl font-display font-bold text-neutral-800 mb-4">
           {product.name}
@@ -104,7 +101,7 @@ const ProductDetailPage = () => {
           <span className="text-3xl mr-3">✨</span>
           Usos Ideales
         </h2>
-        <div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-6">
+        <div className="bg-primary-100 rounded-2xl p-6">
           <ul className="space-y-3">
             {product.idealUses.map((use, index) => (
               <li key={index} className="flex items-start space-x-3">
@@ -155,7 +152,7 @@ const ProductDetailPage = () => {
       </div>
 
       {/* Call to action */}
-      <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-6 text-white">
+      <div className="bg-primary-700 rounded-2xl p-6 text-white">
         <h3 className="text-xl font-bold mb-2">¿Listo para llevarlo a casa?</h3>
         <p className="mb-4 opacity-90">Encuentra este producto en tu tienda favorita</p>
         <button className="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
@@ -231,7 +228,7 @@ const ProductDetailPage = () => {
             <div className="text-center">
               <Link 
                 to="/recetas"
-                className="inline-flex items-center bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="inline-flex items-center bg-primary-700 hover:from-primary-600 hover:to-secondary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Ver Todas las Recetas
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
