@@ -34,10 +34,20 @@ const TestimonialCard = ({ testimonial, featured = false }) => (
     {/* Video Preview Section */}
     {testimonial.videoUrl && (
       <div className="relative">
-        <div className="aspect-[16/5] bg-gray-100 relative overflow-hidden group cursor-pointer"
+        <div className="aspect-[16/5] relative overflow-hidden group cursor-pointer"
+             style={{
+               backgroundImage: 'url(/img/image.jpg)',
+               backgroundSize: 'cover',
+               backgroundPosition: 'center',
+               backgroundRepeat: 'no-repeat'
+             }}
              onClick={() => window.openVideoModal(testimonial.videoUrl)}>
-          {/* Video Thumbnail */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-secondary-500/20 flex items-center justify-center">
+          
+          {/* Dark overlay for better contrast */}
+          <div className="absolute inset-0 bg-black/40"></div>
+          
+          {/* Play Button */}
+          <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 group-hover:bg-white group-hover:scale-110 transition-all duration-300 shadow-lg">
               <PlayIcon className="w-6 h-6 text-primary-700" />
             </div>
@@ -50,7 +60,7 @@ const TestimonialCard = ({ testimonial, featured = false }) => (
             </div>
           </div>
           
-          {/* Gradient overlay for better text readability */}
+          {/* Bottom text overlay */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-12"></div>
           <div className="absolute bottom-1 left-2 text-white">
             <p className="text-xs font-medium">Ver experiencia completa</p>
@@ -90,11 +100,11 @@ const VideoModal = ({ isOpen, videoUrl, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh]">
+      <div className="rounded-2xl bg-neutral-100 overflow-hidden max-w-4xl w-full max-h-[90vh]">
         {/* Modal Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        <div className="flex items-center justify-between p-6 bg-white/90 backdrop-blur-sm border-b border-gray-200">
           <h3 className="text-xl font-display font-bold text-gray-800">Video de Susy Díaz</h3>
-          <button 
+          <button
             onClick={onClose}
             className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
           >
@@ -103,15 +113,18 @@ const VideoModal = ({ isOpen, videoUrl, onClose }) => {
         </div>
 
         {/* Video Container */}
-        <div className="aspect-video">
-          <iframe
-            src={videoUrl.replace('youtu.be/', 'youtube.com/embed/').replace('watch?v=', 'embed/')}
-            title="Video de Susy Díaz con Teresita"
-            className="w-full h-full"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+        <div className="relative p-6">
+          {/* Inner video container with rounded corners */}
+          <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              src={videoUrl.replace('youtu.be/', 'youtube.com/embed/').replace('watch?v=', 'embed/')}
+              title="Video de Susy Díaz con Teresita"
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -131,7 +144,7 @@ const CommunitySection = ({
       id: 'susy-diaz',
       name: 'Susy Díaz',
       role: 'Personalidad de la TV',
-      photo: '/img/susy-diaz.jpg', // You'll need to add this image
+      photo: '/img/susy-diaz.jpg',
       quote: '¡Con Teresita, mis comidas quedan riquísimas... y al toque! Es la marca que siempre uso en mi cocina.',
       rating: 5,
       verified: true,
@@ -231,7 +244,7 @@ const CommunitySection = ({
       </section>
 
       {/* Video Modal */}
-      <VideoModal 
+      <VideoModal
         isOpen={isVideoModalOpen}
         videoUrl={currentVideoUrl}
         onClose={() => setIsVideoModalOpen(false)}

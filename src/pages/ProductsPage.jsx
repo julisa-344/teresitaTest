@@ -97,9 +97,9 @@ const ProductsPage = () => {
             📦
           </div>
           {/* Category Icon Badge */}
-          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-md">
+          {/* <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-md">
             <span className="text-lg">{product.categoryIcon}</span>
-          </div>
+          </div> */}
         </div>
         <div className="p-6">
           <div className="flex items-start justify-between mb-3">
@@ -120,7 +120,7 @@ const ProductsPage = () => {
           </p>
           <Link
             to={`/productos/${product.id}`}
-            className="block w-full bg-primary-700 hover:from-primary-700 hover:to-secondary-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 text-center shadow-lg hover:shadow-xl group-hover:shadow-primary-500/25"
+            className="block w-full bg-primary-700 hover:from-primary-700 hover:to-red-700 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 text-center transform hover:scale-105 shadow-lg hover:shadow-2xl button-glow flex-shrink-0 mt-auto"
           >
             Ver Detalles
             <svg

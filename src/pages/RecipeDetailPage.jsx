@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Users, ChefHat, Star, Heart, Share2, ShoppingCart, Download, Play } from 'lucide-react';
+import { ArrowLeft, Clock, Users, ChefHat, Star, Heart, Share2, ShoppingCart, Download, Play, Lightbulb, Book, Utensils } from 'lucide-react';
+import { TrophyIcon, UserIcon } from '@heroicons/react/24/outline';
 import { recipes } from '../data/recipes.js';
 import { 
   adjustIngredients,
   downloadRecipeFile,
-  downloadShoppingList,
-  shareRecipe,
-  copyRecipeToClipboard
+
 } from '../utils/downloadUtils.js';
 
 const RecipeDetailPage = () => {
   const { id } = useParams();
-  const [isFavorite, setIsFavorite] = useState(false);
   const [activeTab, setActiveTab] = useState('ingredientes');
   const [servings, setServings] = useState(4);
 
@@ -48,11 +46,11 @@ const RecipeDetailPage = () => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="bg- bg-primary-100  shadow-sm border-b">
+      <div className="bg-neutral-100 shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link 
             to="/recetas" 
-            className="inline-flex items-center text-primary-700 hover:text-orange-700 mb-4"
+            className="inline-flex items-center text-primary-700 hover:text-primary-800 mb-4"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             Volver a recetas
@@ -103,7 +101,7 @@ const RecipeDetailPage = () => {
               
               <button
                 onClick={downloadRecipe}
-                className="flex items-center px-4 py-2 bg-primary-700 text-neutral-100 rounded-lg hover:bg-orange-800 transition-colors"
+                className="flex items-center px-4 py-2 bg-primary-700 text-neutral-100 rounded-lg hover:bg-primary-800 transition-colors"
               >
                 <Download className="h-5 w-5 mr-2" />
                 Descargar receta
@@ -129,8 +127,8 @@ const RecipeDetailPage = () => {
                 <h3 className="font-bold text-xl mb-3">Productos Teresita</h3>
                 <div className="space-y-2">
                   {recipe.productosTeresita.map((producto, index) => (
-                    <div key={index} className="flex items-center bg-gradient-to-r from-orange-100 to-red-100 rounded-lg p-3">
-                      <span className="text-2xl mr-3">🏆</span>
+                    <div key={index} className="flex items-center bg-gradient-to-r from-primary-100 to-red-100 rounded-lg p-3">
+                      <TrophyIcon className="h-6 w-6 text-primary-600 mr-3" />
                       <span className="font-medium text-gray-800">{producto}</span>
                     </div>
                   ))}
@@ -139,13 +137,54 @@ const RecipeDetailPage = () => {
 
               {/* Secreto de Teresita */}
               <div className="px-6 pb-6">
-                <div className="bg-gradient-to-r from-red-100 to-pink-100 rounded-xl p-4 border-2 border-red-200">
-                  <h4 className="font-bold text-red-800 mb-2 flex items-center">
+                {/* Opción 1: Degradado dorado elegante (recomendado) */}
+                <div className="bg-gradient-to-r from-secondary-100 to-secondary-200 rounded-xl p-4 border-2 border-secondary-300 shadow-md">
+                  <h4 className="font-bold text-secondary-800 mb-2 flex items-center">
+                    <UserIcon className="h-6 w-6 mr-2 text-secondary-700" />
+                    Secreto de la Chef Teresita
+                  </h4>
+                  <p className="text-secondary-700 italic font-medium">{recipe.trucoTeresita}</p>
+                </div>
+
+                {/* Opción 2: Verde natural y fresco
+                <div className="bg-gradient-to-r from-green-100 to-green-200 rounded-xl p-4 border-2 border-green-300 shadow-md">
+                  <h4 className="font-bold text-green-800 mb-2 flex items-center">
                     <span className="text-2xl mr-2">👩‍🍳</span>
                     Secreto de la Chef Teresita
                   </h4>
-                  <p className="text-red-700 italic font-medium">{recipe.trucoTeresita}</p>
+                  <p className="text-green-700 italic font-medium">{recipe.trucoTeresita}</p>
                 </div>
+                */}
+
+                {/* Opción 3: Naranja cálido
+                <div className="bg-gradient-to-r from-orange-100 to-orange-200 rounded-xl p-4 border-2 border-orange-300 shadow-md">
+                  <h4 className="font-bold text-orange-800 mb-2 flex items-center">
+                    <span className="text-2xl mr-2">👩‍🍳</span>
+                    Secreto de la Chef Teresita
+                  </h4>
+                  <p className="text-orange-700 italic font-medium">{recipe.trucoTeresita}</p>
+                </div>
+                */}
+
+                {/* Opción 4: Crema sofisticado
+                <div className="bg-gradient-to-r from-gray-100 to-cream rounded-xl p-4 border-2 border-gray-300 shadow-md">
+                  <h4 className="font-bold text-gray-800 mb-2 flex items-center">
+                    <span className="text-2xl mr-2">👩‍🍳</span>
+                    Secreto de la Chef Teresita
+                  </h4>
+                  <p className="text-gray-700 italic font-medium">{recipe.trucoTeresita}</p>
+                </div>
+                */}
+
+                {/* Opción 5: Combinación marca (rojo principal + amarillo)
+                <div className="bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl p-4 border-2 border-primary-300 shadow-md">
+                  <h4 className="font-bold text-primary-800 mb-2 flex items-center">
+                    <span className="text-2xl mr-2">👩‍🍳</span>
+                    Secreto de la Chef Teresita
+                  </h4>
+                  <p className="text-primary-700 italic font-medium">{recipe.trucoTeresita}</p>
+                </div>
+                */}
               </div>
             </div>
           </div>
@@ -159,16 +198,16 @@ const RecipeDetailPage = () => {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => setServings(Math.max(1, servings - 1))}
-                    className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center hover:bg-orange-200 transition-colors font-bold text-lg"
+                    className="w-10 h-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center hover:bg-primary-200 transition-colors font-bold text-lg"
                   >
                     -
                   </button>
-                  <span className="text-2xl font-bold text-orange-600 min-w-[3rem] text-center">
+                  <span className="text-2xl font-bold text-primary-600 min-w-[3rem] text-center">
                     {servings}
                   </span>
                   <button
                     onClick={() => setServings(servings + 1)}
-                    className="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center hover:bg-orange-200 transition-colors font-bold text-lg"
+                    className="w-10 h-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center hover:bg-primary-200 transition-colors font-bold text-lg"
                   >
                     +
                   </button>
@@ -185,21 +224,21 @@ const RecipeDetailPage = () => {
               <div className="border-b border-gray-200">
                 <nav className="flex">
                   {[
-                    { key: 'ingredientes', label: 'Ingredientes', icon: '📝' },
-                    { key: 'preparacion', label: 'Preparación', icon: '👨‍🍳' },
-                    { key: 'historia', label: 'Historia', icon: '📚' },
-                    { key: 'tips', label: 'Tips', icon: '💡' }
+                    { key: 'ingredientes', label: 'Ingredientes', icon: Utensils },
+                    { key: 'preparacion', label: 'Preparación', icon: ChefHat },
+                    { key: 'historia', label: 'Historia', icon: Book },
+                    { key: 'tips', label: 'Tips', icon: Lightbulb }
                   ].map(tab => (
                     <button
                       key={tab.key}
                       onClick={() => setActiveTab(tab.key)}
                       className={`flex-1 py-4 px-6 text-center border-b-2 font-medium transition-colors ${
                         activeTab === tab.key
-                          ? 'border-orange-500 text-orange-600 bg-orange-50'
+                          ? 'border-primary-500 text-primary-600 bg-primary-50'
                           : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                       }`}
                     >
-                      <span className="text-lg mr-2">{tab.icon}</span>
+                      <tab.icon className="h-5 w-5 mx-auto mb-1" />
                       {tab.label}
                     </button>
                   ))}
@@ -219,7 +258,7 @@ const RecipeDetailPage = () => {
                           key={index}
                           className={`flex items-center p-4 rounded-xl border-2 transition-all hover:shadow-md ${
                             ingredient.teresita
-                              ? 'bg-gradient-to-r from-orange-50 to-red-50 border-orange-200 relative'
+                              ? 'bg-gradient-to-r from-primary-50 to-red-50 border-primary-200 relative'
                               : 'bg-gray-50 border-gray-200'
                           }`}
                         >
@@ -228,8 +267,9 @@ const RecipeDetailPage = () => {
                             <span className="text-gray-700 ml-2">{ingredient.nombre}</span>
                           </div>
                           {ingredient.teresita && (
-                            <div className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                              🏆 Teresita
+                            <div className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center">
+                              <TrophyIcon className="h-4 w-4 mr-1" />
+                              Teresita
                             </div>
                           )}
                         </div>
@@ -243,9 +283,9 @@ const RecipeDetailPage = () => {
                   <div className="space-y-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Preparación paso a paso</h3>
                     {recipe.preparacion.map((step, index) => (
-                      <div key={index} className="bg-gray-50 rounded-xl p-6 border-l-4 border-orange-500">
+                      <div key={index} className="bg-gray-50 rounded-xl p-6 border-l-4 border-primary-500">
                         <div className="flex items-start space-x-4">
-                          <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                          <div className="bg-gradient-to-r from-primary-600 to-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
                             {step.paso}
                           </div>
                           <div className="flex-1">
@@ -258,8 +298,9 @@ const RecipeDetailPage = () => {
                             <p className="text-gray-700 mb-3 leading-relaxed">{step.descripcion}</p>
                             {step.tip && (
                               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded-r-lg">
-                                <p className="text-yellow-800">
-                                  <span className="font-bold">💡 Tip:</span> {step.tip}
+                                <p className="text-yellow-800 flex items-start">
+                                  <Lightbulb className="h-5 w-5 mr-2 text-yellow-600 flex-shrink-0 mt-0.5" />
+                                  <span><span className="font-bold">Tip:</span> {step.tip}</span>
                                 </p>
                               </div>
                             )}
@@ -287,7 +328,7 @@ const RecipeDetailPage = () => {
                     <div className="grid gap-4">
                       {recipe.notas.map((note, index) => (
                         <div key={index} className="flex items-start p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
-                          <span className="text-green-600 text-xl mr-3">✓</span>
+                          <Star className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
                           <p className="text-green-800 font-medium">{note}</p>
                         </div>
                       ))}

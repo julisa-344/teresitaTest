@@ -1,91 +1,72 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BookOpenIcon } from '@heroicons/react/24/outline';
+import { recipes } from '../../data/recipes';
+import { MoveRight } from 'lucide-react';
 
 /**
- * Recipe Card Component for featured recipes
+ * Recipe Card Component with RecipesPage styling (no rating)
  */
 const RecipeCard = ({ recipe }) => (
-  <Link 
-    to={`/recetas/${recipe.id}`}
-    className="group bg-neutral-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-neutral-200"
+  <Link
+    to={`/receta/${recipe.id}`}
+    onClick={() => window.scrollTo(0, 0)}
+    className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full"
   >
     {/* Recipe Image */}
-    <div className="relative h-48 md:h-56 overflow-hidden">
-      <img 
-        src={recipe.image} 
+    <div className="relative overflow-hidden group flex-shrink-0">
+      <img
+        src={recipe.image}
         alt={recipe.name}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        className="w-full h-64 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
       />
       
-      {/* Difficulty Badge */}
-      <div className="absolute top-4 left-4">
-        <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-          recipe.difficulty === 'Fácil' ? 'bg-accent-green-600/90 text-neutral-50' :
-          recipe.difficulty === 'Media' ? 'bg-secondary-500/90 text-neutral-50' :
-          'bg-primary-700/90 text-neutral-50'
-        }`}>
-          {recipe.difficulty}
-        </span>
-      </div>
-
-      {/* Rating */}
-      <div className="absolute top-4 right-4 bg-text-primary/70 backdrop-blur-sm rounded-lg px-2 py-1">
-        <div className="flex items-center gap-1">
-          <span className="text-secondary-400 text-sm">⭐</span>
-          <span className="text-neutral-50 text-sm font-medium">{recipe.rating}</span>
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400"></div>
+      
+      {/* Time Badge (identical to RecipesPage) */}
+      <div className="absolute top-4 left-4 transform transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+        <div className="bg-gradient-to-r from-primary-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl backdrop-blur-sm border border-white/20">
+          <span className="flex items-center">
+            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+            </svg>
+            {recipe.time} min
+          </span>
         </div>
       </div>
     </div>
 
     {/* Recipe Content */}
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-primary-700 transition-colors">
+    <div className="p-6 flex flex-col flex-grow">
+      <h3 className="font-bold text-gray-900 text-xl mb-3 line-clamp-2 group-hover:text-primary-700 transition-colors duration-300">
         {recipe.name}
       </h3>
       
-      <p className="text-text-secondary text-sm mb-4 line-clamp-2">
+      <p className="text-gray-700 text-sm mb-4 line-clamp-2 leading-relaxed flex-shrink-0">
         {recipe.description}
       </p>
 
-      {/* Recipe Meta Info */}
-      <div className="flex items-center justify-between text-sm text-text-secondary mb-4">
-        <div className="flex items-center gap-1">
-          <span>⏱️</span>
-          <span>{recipe.time} min</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <span>👥</span>
-          <span>{recipe.portions} porciones</span>
-        </div>
+      {/* Recipe Meta Info (identical to RecipesPage) */}
+      <div className="flex items-center justify-between mb-4 flex-shrink-0">
+        <span className="bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-200 shadow-sm">
+          {recipe.difficultyLabel || recipe.difficulty}
+        </span>
+        <span className="text-gray-500 text-xs flex items-center bg-gray-50 px-2 py-1 rounded-lg">
+          <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+          </svg>
+          {recipe.portions} porciones
+        </span>
       </div>
-
-      {/* Teresita Products */}
-      {recipe.productosTeresita && recipe.productosTeresita.length > 0 && (
-        <div className="flex flex-wrap gap-1 mb-4">
-          {recipe.productosTeresita.slice(0, 2).map((product, index) => (
-            <span 
-              key={index}
-              className="bg-secondary-100 text-secondary-700 px-2 py-1 rounded-md text-xs font-medium"
-            >
-              {product}
-            </span>
-          ))}
-          {recipe.productosTeresita.length > 2 && (
-            <span className="text-primary-700 text-xs font-medium">
-              +{recipe.productosTeresita.length - 2} más
-            </span>
-          )}
-        </div>
-      )}
-
-      {/* Call to Action */}
+      
+      {/* Call to Action Button (identical to RecipesPage) */}
       <div className="flex items-center justify-between">
         <span className="text-primary-700 font-medium group-hover:text-primary-800">
           Ver receta completa
-        </span>
-        <span className="text-primary-700 group-hover:translate-x-1 transition-transform">
-          →
-        </span>
+             </span>
+          <MoveRight className="w-5 h-5 text-primary-700 group-hover:text-primary-800 transition-transform duration-300 transform group-hover:translate-x-1" />
+     
       </div>
     </div>
   </Link>
@@ -95,11 +76,11 @@ const RecipeCard = ({ recipe }) => (
  * Recipe Inspiration Section Component
  * Shows featured recipes to inspire users
  */
-const RecipeInspiration = ({ 
+const RecipeInspiration = ({
   className = "",
   title = "¿Qué Cocinamos Hoy?",
   subtitle = "Descubre recetas que despiertan tu creatividad culinaria",
-  featuredRecipes = [],
+  featuredRecipes = recipes.slice(0, 4), // Show only 4 featured recipes for homepage
   ctaText = "Ver todas las recetas",
   ctaLink = "/recetas"
 }) => {
@@ -117,7 +98,7 @@ const RecipeInspiration = ({
         </div>
 
         {/* Featured Recipes Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12 max-w-7xl mx-auto">
           {featuredRecipes.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
@@ -129,7 +110,7 @@ const RecipeInspiration = ({
             to={ctaLink}
             className="inline-flex items-center gap-3 bg-primary-700 hover:bg-primary-800 text-neutral-50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            <span className="text-xl">👨‍🍳</span>
+            <BookOpenIcon className="w-6 h-6" />
             {ctaText}
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>

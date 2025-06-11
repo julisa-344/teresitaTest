@@ -31,7 +31,7 @@ const PartnersSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-block mb-6">
-            <span className="bg-secondary-100 text-secondary-700 px-6 py-3 rounded-full text-sm font-semibold tracking-wide uppercase">
+            <span className="bg-primary-100 text-primary-700 px-6 py-3 rounded-full text-sm font-semibold tracking-wide uppercase">
               Nuestros Socios
             </span>
           </div>
@@ -65,7 +65,7 @@ const PartnersSection = () => {
               escríbenos y trabajaremos para llegar hasta ti.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-primary-600 px-8 py-3 rounded-full font-semibold hover:bg-neutral-100 transition-colors duration-300">
+            <button className="bg-white text-primary-700 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Contáctanos
               </button>
             </div>
