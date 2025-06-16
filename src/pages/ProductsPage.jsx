@@ -80,8 +80,8 @@ const ProductsPage = () => {
   };
 
   const ProductCard = ({ product }) => (
-    <Link to={`/productos/${product.id}`}>
-      <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden group border border-neutral-100">
+    <Link to={`/productos/${product.id}`} className="h-full">
+      <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden group border border-neutral-100 h-full flex flex-col">
         <div className="aspect-square bg-gradient-to-br from-neutral-50 to-neutral-100 p-6 flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 to-secondary-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <img
@@ -101,7 +101,7 @@ const ProductsPage = () => {
             <span className="text-lg">{product.categoryIcon}</span>
           </div> */}
         </div>
-        <div className="p-6">
+        <div className="p-6 flex flex-col flex-grow">
           <div className="flex items-start justify-between mb-3">
             <h3 className="font-bold text-xl text-neutral-800 group-hover:text-primary-700 transition-colors duration-300 line-clamp-2">
               {product.name}
@@ -115,12 +115,12 @@ const ProductsPage = () => {
               {product.categoryName}
             </span>
           </div>
-          <p className="text-neutral-700 text-sm mb-6 leading-relaxed line-clamp-3">
+          <p className="text-neutral-700 text-sm mb-6 leading-relaxed line-clamp-3 flex-grow">
             {product.description}
           </p>
           <Link
             to={`/productos/${product.id}`}
-            className="block w-full bg-primary-700 hover:from-primary-700 hover:to-red-700 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 text-center transform hover:scale-105 shadow-lg hover:shadow-2xl button-glow flex-shrink-0 mt-auto"
+            className="block w-full bg-primary-700 hover:from-primary-700 hover:to-red-700 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 text-center transform hover:scale-105 shadow-lg hover:shadow-2xl button-glow mt-auto"
           >
             Ver Detalles
             <svg

@@ -18,30 +18,30 @@ const Header = () => {
     { 
       name: 'NOSOTROS', 
       href: '/nosotros',
-      dropdown: [
-        { name: 'Nuestra Historia', href: '/nosotros#historia' },
-        { name: 'Nuestro Equipo', href: '/nosotros#equipo' },
-        { name: 'Valores', href: '/nosotros#valores' }
-      ]
+      // dropdown: [
+      //   { name: 'Nuestra Historia', href: '/nosotros#historia' },
+      //   { name: 'Nuestro Equipo', href: '/nosotros#equipo' },
+      //   { name: 'Valores', href: '/nosotros#valores' }
+      // ]
     },
     { 
       name: 'PRODUCTOS', 
       href: '/productos',
-      dropdown: [
-        { name: 'Condimentos', href: '/productos#condimentos' },
-        { name: 'Sazonadores', href: '/productos#sazonadores' },
-        { name: 'Línea Premium', href: '/productos#premium' }
-      ]
+      // dropdown: [
+      //   { name: 'Condimentos', href: '/productos#condimentos' },
+      //   { name: 'Sazonadores', href: '/productos#sazonadores' },
+      //   { name: 'Línea Premium', href: '/productos#premium' }
+      // ]
     },
     { 
       name: 'RECETAS', 
       href: '/recetas', 
       highlight: true,
-      dropdown: [
-        { name: 'Recetas Tradicionales', href: '/recetas#tradicionales' },
-        { name: 'Cocina Rápida', href: '/recetas#rapida' },
-        { name: 'Especiales', href: '/recetas#especiales' }
-      ]
+      // dropdown: [
+      //   { name: 'Recetas Tradicionales', href: '/recetas#tradicionales' },
+      //   { name: 'Cocina Rápida', href: '/recetas#rapida' },
+      //   { name: 'Especiales', href: '/recetas#especiales' }
+      // ]
     },
     { 
       name: 'CONTÁCTANOS', 

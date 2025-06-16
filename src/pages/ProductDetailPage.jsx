@@ -155,9 +155,12 @@ const ProductDetailPage = () => {
       <div className="bg-primary-700 rounded-2xl p-6 text-white">
         <h3 className="text-xl font-bold mb-2">¿Listo para llevarlo a casa?</h3>
         <p className="mb-4 opacity-90">Encuentra este producto en tu tienda favorita</p>
-        <button className="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+        <Link 
+          to="/nosotros#nuestros-socios" 
+          className="inline-block bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-50 transition-colors"
+        >
           Encontrar Tiendas
-        </button>
+        </Link>
       </div>
     </div>
   );

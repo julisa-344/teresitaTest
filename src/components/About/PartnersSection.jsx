@@ -27,7 +27,7 @@ const PartnerCard = ({ partner, index }) => {
 
 const PartnersSection = () => {
   return (
-    <section className="py-20">
+    <section className="py-20" id='nuestros-socios'>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-block mb-6">

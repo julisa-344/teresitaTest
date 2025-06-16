@@ -74,7 +74,7 @@ const TrustLegacy = ({
   ctaLink = "/nosotros"
 }) => {
   return (
-    <section className={`py-12 min-h-screen max-h-screen overflow-hidden ${className}`}>
+    <section className={`py-12 min-h-screen overflow-hidden ${className}`}>
       <div className="container mx-auto px-4 h-full flex flex-col">
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">

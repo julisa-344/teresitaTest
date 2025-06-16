@@ -157,7 +157,7 @@ const ProductSolution = ({
         <div className="text-center">
           <Link 
             to={ctaLink}
-            className="inline-flex items-center gap-3 bg-primary-700 hover:from-primary-800 hover:to-secondary-600 text-neutral-50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-primary-700 hover:shadow-lg text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105 shadow-md group"
           >
             <ShoppingBagIcon className="w-6 h-6" />
             {ctaText}
